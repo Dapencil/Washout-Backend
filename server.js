@@ -1,4 +1,4 @@
-const PROTO_PATH = "./proto/washout.proto";
+const PROTO_PATH = "./proto/branch.proto";
 
 let grpc = require("@grpc/grpc-js");
 let protoLoader = require("@grpc/proto-loader");
@@ -11,11 +11,11 @@ var packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   arrays: true,
 });
 
-let washoutProto = grpc.loadPackageDefinition(packageDefinition);
+let branchProto = grpc.loadPackageDefinition(packageDefinition);
 
 const server = new grpc.Server();
 
-server.addService(washoutProto.BranchService.service, {
+server.addService(branchProto.BranchService.service, {
   getAll: (_, callback) => {
     callback(null, { branches });
   },
@@ -33,7 +33,6 @@ server.addService(washoutProto.BranchService.service, {
   },
   insert: (call, callback) => {
     let branchItem = call.request;
-    console.log(branchItem);
     branchItem.id = "some-id";
     branches.push(branchItem);
     callback(null, branchItem);
