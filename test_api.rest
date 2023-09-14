@@ -1,11 +1,11 @@
-GET http://localhost:3001/
+GET http://localhost:3001/branch
 
 ###
 
-GET http://localhost:3001/cdc58005-2046-4ad3-beae-cbbacfe82509
+GET http://localhost:3001/branch/cdc58005-2046-4ad3-beae-cbbacfe82509
 
 ###
-POST http://localhost:3001/save
+POST http://localhost:3001/branch/save
 Content-Type: application/json
 
 {
@@ -15,4 +15,24 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3001/remove/cdc58005-2046-4ad3-beae-cbbacfe82509
+DELETE http://localhost:3001/branch/remove/cdc58005-2046-4ad3-beae-cbbacfe82509
+
+###
+GET http://localhost:3001/machine
+
+###
+
+GET http://localhost:3001/machine/3c292250-0630-4c38-a862-ee5b992489cf
+
+###
+POST http://localhost:3001/machine/save
+Content-Type: application/json
+
+{
+    "branchId": "some-branch",
+    "status": "working",
+    "type": "20"
+}
+
+###
+DELETE http://localhost:3001/machine/remove/some-id
