@@ -25,29 +25,3 @@ message BranchList {
 message BranchId {
     string id=1;
 }
-
-// Define MachineService
-service MachineService{
-    rpc GetAllMachine(Empty) returns (MachineList){}
-    rpc Get(MachineId) returns (MachineItem){}
-    rpc InsertMachine(MachineItem) returns (MachineItem){}
-    rpc UpdateMachine(MachineItem) returns (MachineItem){}
-    rpc RemoveMachine(MachineId) returns (Empty){}
-}
-
-message MachineItem{
-    string id=1;
-    string branchId =2;
-    string status=3;
-    string type=4;
-}
-
-message MachineList{
-    repeated MachineItem machines=1;
-}
-
-message MachineId{
-    string id=1;
-}
-
-
