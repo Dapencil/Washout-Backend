@@ -2,11 +2,11 @@ syntax = "proto3";
 
 // Define BranchService
 service BranchService {
-    rpc GetAllBranch(Empty) returns (BranchList){}
+    rpc GetAll(Empty) returns (BranchList){}
     rpc Get(BranchId) returns (BranchItem){}
-    rpc InsertBranch(BranchItem) returns (BranchItem){}
-    rpc UpdateBranch(BranchItem) returns (BranchItem){}
-    rpc RemoveBranch(BranchId) returns (Empty){}
+    rpc Insert(BranchItem) returns (BranchItem){}
+    rpc Update(BranchItem) returns (BranchItem){}
+    rpc Remove(BranchId) returns (Empty){}
 }
 
 message Empty{}

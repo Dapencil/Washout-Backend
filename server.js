@@ -16,7 +16,7 @@ let washoutProto = grpc.loadPackageDefinition(packageDefinition);
 const server = new grpc.Server();
 
 server.addService(washoutProto.BranchService.service, {
-  getAllBranch: (_, callback) => {
+  getAll: (_, callback) => {
     callback(null, { branches });
   },
   get: (call, callback) => {
@@ -33,6 +33,7 @@ server.addService(washoutProto.BranchService.service, {
   },
   insert: (call, callback) => {
     let branchItem = call.request;
+    console.log(branchItem);
     branchItem.id = "some-id";
     branches.push(branchItem);
     callback(null, branchItem);
