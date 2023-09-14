@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+// Define BranchService
+service BranchService {
+    rpc GetAllBranch(Empty) returns (BranchList){}
+    rpc Get(BranchId) returns (BranchItem){}
+    rpc InsertBranch(BranchItem) returns (BranchItem){}
+    rpc UpdateBranch(BranchItem) returns (BranchItem){}
+    rpc RemoveBranch(BranchId) returns (Empty){}
+}
+
+message Empty{}
+
+message BranchItem {
+    string id=1;
+    string name=2;
+    string address=3;
+    string telNum=4;
+}
+
+message BranchList {
+    repeated BranchItem branches=1;
+}
+
+message BranchId {
+    string id=1;
+}
+
+// Define MachineService
+service MachineService{
+    rpc GetAllMachine(Empty) returns (MachineList){}
+    rpc Get(MachineId) returns (MachineItem){}
+    rpc InsertMachine(MachineItem) returns (MachineItem){}
+    rpc UpdateMachine(MachineItem) returns (MachineItem){}
+    rpc RemoveMachine(MachineId) returns (Empty){}
+}
+
+message MachineItem{
+    string id=1;
+    string branchId =2;
+    string status=3;
+    string type=4;
+}
+
+message MachineList{
+    repeated MachineItem machines=1;
+}
+
+message MachineId{
+    string id=1;
+}
+
+
